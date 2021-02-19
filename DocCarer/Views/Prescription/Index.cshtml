@@ -1,10 +1,14 @@
-﻿@model  List<DoctorViewModel>
-@{
+﻿@model DoctorViewModel
 
+@{
     ViewData["Title"] = "Home Page";
 }
-
 <input type="text" />
+
+<div>
+    Doctor's data:
+    Name: @Model.Name
+</div>
 
 <div class="text-center">
     <table class="table">
@@ -22,17 +26,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var doctor in Model)
+            @foreach (var prescription in Model.Prescriptions)
             {
-            <tr>
-                <th scope="row">@(Model.IndexOf(doctor)+1)</th>
-                <td>
-                    @doctor.Name
-                </td>
-                <td>
-                   View |Delete
-                </td>
-            </tr>
+                <tr>
+                    <th scope="row">@(Model.Prescriptions.IndexOf(prescription)+1)</th>
+                    <td>
+                        @prescription.Name
+                    </td>
+                    <td>
+                        View | Delete
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
